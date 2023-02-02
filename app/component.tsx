@@ -1,7 +1,9 @@
 "use client";
+
+import React from "react";
 import { useEffect } from "react";
 
-export const Component = () => {
+export const Component = React.memo(() => {
   useEffect(() => {
     console.log("mounted Component");
     return () => {
@@ -9,4 +11,4 @@ export const Component = () => {
     };
   }, []);
   return <div>Component</div>;
-};
+});
