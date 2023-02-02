@@ -2,21 +2,33 @@
 
 import { useEffect } from "react";
 
+const Component = () => {
+  useEffect(() => {
+    console.log("mounted Component");
+    return () => {
+      console.log("unmounted Component");
+    };
+  });
+  return <div>Component</div>;
+};
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    console.log("mounted");
+    console.log("mounted Layout");
     return () => {
-      console.log("unmounted");
+      console.log("unmounted Layout");
     };
-  }, []);
+  });
   return (
     <html>
       <head />
-      <body>{children}</body>
+      <body>
+        <div>{children}</div>
+        <Component />
+      </body>
     </html>
   );
 }
