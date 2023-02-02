@@ -2,15 +2,6 @@
 
 import { useEffect } from "react";
 
-const Component = () => {
-  useEffect(() => {
-    console.log("mounted Component");
-    return () => {
-      console.log("unmounted Component");
-    };
-  });
-  return <div>Component</div>;
-};
 export default function RootLayout({
   children,
 }: {
@@ -25,10 +16,7 @@ export default function RootLayout({
   return (
     <html>
       <head />
-      <body>
-        <div>{children}</div>
-        <Component />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
